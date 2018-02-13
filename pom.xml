@@ -11,6 +11,8 @@
     <kotlin.version>1.2.21</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <main.class>tech.anima.archon.MainKt</main.class>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 <!-- see https://kotlinlang.org/docs/reference/using-maven.html for additional dependencies/plugins that might be handy to add laters -->
   <dependencies>
@@ -30,6 +32,26 @@
     <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
     <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
     <plugins>
+      <plugin>
+        <groupId>com.helger.maven</groupId>
+        <artifactId>ph-javacc-maven-plugin</artifactId>
+        <version>4.0.1</version>
+        <executions>
+          <execution>
+            <id>jjc</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>javacc</goal>
+            </goals>
+            <configuration>
+              <jdkVersion>1.8</jdkVersion>
+              <javadocFriendlyComments>true</javadocFriendlyComments>
+              <packageName>tech.anima.archon.language</packageName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>
