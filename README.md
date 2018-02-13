@@ -1,5 +1,11 @@
 # archon
 
+## TODO
+
+- travis to run some basic junit
+- setup a container with elasticsearch and a few basic docs
+
+
 ## notes
 
 the semantic monitronig idea
