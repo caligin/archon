@@ -1,10 +1,19 @@
 # archon
 
+## canned, redesign?
+
+- grammar is overkill and needless constraints, why do that when can use a sandboxed js for tests?
+- elasticsearch doesn't provide realtime events (yet), need to either change to batch process/querying or use someting else
+
+- redesign.
+- logstash -> kafka (or other persistent+tailable) -> keep on jvm
+- logstash (or even rsyslog!) -> straight to the event processor + temp storage (redis?), then go for erlang? (every event chain an fsm actor? lua (if there is an embedded lua) for writing/evaluating test conditions?)
+
+
 ## TODO
 
 - travis to run some basic junit
 - setup a container with elasticsearch and a few basic docs
-
 
 ## notes
 
